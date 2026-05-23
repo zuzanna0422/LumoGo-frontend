@@ -1,10 +1,15 @@
 {
-  "enabledPlugins": {
-    "expo@claude-plugins-official": true
-  },
   "permissions": {
     "allow": [
-      "Bash(git -C /Users/zch/LumoGo remote -v)"
+      "Bash(git -C /Users/zch/LumoGo remote -v)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); deps={**d.get\\('dependencies',{}\\), **d.get\\('devDependencies',{}\\)}; [print\\(k\\) for k in deps if 'icon' in k.lower\\(\\) or 'vector' in k.lower\\(\\)]\")",
+      "Bash(rm /Users/zch/LumoGo/assets/icons/navbar-chat-icon.svg /Users/zch/LumoGo/assets/icons/navbar-clouds-icon.svg /Users/zch/LumoGo/assets/icons/navbar-home-icon.svg /Users/zch/LumoGo/assets/icons/navbar-profile-icon.svg && echo \"removed\" && ls /Users/zch/LumoGo/assets/icons/)"
+    ],
+    "additionalDirectories": [
+      "/Users/zch/LumoGo/assets/icons"
     ]
+  },
+  "enabledPlugins": {
+    "expo@claude-plugins-official": true
   }
 }

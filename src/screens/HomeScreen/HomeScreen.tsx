@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { colors } from '../../theme/colors';
 
 export default function HomeScreen() {
   return (
@@ -16,7 +17,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundPrimary,
   },
   content: {
     flex: 1,
@@ -26,11 +27,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#1a1a1a',
+    color: colors.textPrimary,
   },
   subtitle: {
     fontSize: 16,
-    color: '#888',
+    color: colors.textMuted,
     marginTop: 8,
   },
 });
