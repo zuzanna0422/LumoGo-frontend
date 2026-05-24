@@ -1,15 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '../../theme/colors';
+import { HomeHeader } from './components/HomeHeader';
+import { useHomeHeader } from './hooks/useHomeHeader';
 
 export default function HomeScreen() {
+  const { data: homeHeader } = useHomeHeader();
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>LumoGo</Text>
-        <Text style={styles.subtitle}>Home</Text>
-      </View>
+      <HomeHeader data={homeHeader} />
+      <View style={styles.content} />
     </SafeAreaView>
   );
 }
@@ -21,17 +23,5 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: colors.textPrimary,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: colors.textMuted,
-    marginTop: 8,
   },
 });
