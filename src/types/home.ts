@@ -9,3 +9,13 @@ export type HomeHeaderData = {
     region: string;
   };
 };
+
+export type HomeRecommendationTextPart = {
+  text: string;
+  emphasized?: boolean;
+};
+
+export type HomeRecommendationData = {
+  assistantName: string;
+  messageParts: HomeRecommendationTextPart[];
+};
