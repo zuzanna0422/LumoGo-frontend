@@ -53,7 +53,7 @@ export default function LoadingScreen({ navigation }: Props) {
         </Animated.Text>
         <ProgressBar
           duration={DURATION}
-          onComplete={() => navigation.replace('Main')}
+          onComplete={() => navigation.replace('Authentication')}
         />
       </View>
     </View>
@@ -63,7 +63,7 @@ export default function LoadingScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.primaryDefault,
+    backgroundColor: colors.loadingBackground,
     paddingHorizontal: 40,
     paddingBottom: 56,
   },

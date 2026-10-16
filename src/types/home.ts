@@ -19,3 +19,14 @@ export type HomeRecommendationData = {
   assistantName: string;
   messageParts: HomeRecommendationTextPart[];
 };
+
+export type HomeConditionsStatus = 'poor' | 'moderate' | 'good';
+
+export type HomeConditionsData = {
+  score: number;
+  maxScore: number;
+  temperatureCelsius: number;
+  windSpeedKmh: number;
+  humidityPercent: number;
+  airQualityIndex: number;
+};

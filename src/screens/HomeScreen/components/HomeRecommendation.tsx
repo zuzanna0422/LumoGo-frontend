@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../../theme/colors';
 import type { HomeRecommendationData } from '../../../types/home';
 
-const lumoImage = require('../../../../assets/images/lumo-happy-chat.png');
+const lumoImage = require('../../../../assets/images/profile-lumo.png');
 
 type HomeRecommendationProps = {
   data: HomeRecommendationData;
@@ -18,6 +18,7 @@ export function HomeRecommendation({ data }: HomeRecommendationProps) {
       </View>
 
       <View style={styles.messageBubble}>
+        <View style={styles.messageTail} />
         <Text style={styles.message}>
           {data.messageParts.map((part, index) => (
             <Text
@@ -35,41 +36,60 @@ export function HomeRecommendation({ data }: HomeRecommendationProps) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    alignItems: 'flex-end',
     flexDirection: 'row',
-    paddingHorizontal: 20,
-    paddingTop: 18,
+    paddingHorizontal: 28,
+    paddingTop: 20,
   },
   assistant: {
     alignItems: 'center',
-    marginRight: 12,
-    width: 56,
+    marginRight: 18,
+    width: 76,
   },
   assistantImage: {
-    borderColor: colors.backgroundMuted,
-    borderRadius: 28,
-    borderWidth: 1,
-    height: 56,
-    width: 56,
+    backgroundColor: colors.backgroundPrimary,
+    borderColor: colors.homeWarmDark,
+    borderRadius: 38,
+    borderWidth: 1.5,
+    height: 76,
+    width: 76,
   },
   assistantName: {
     color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 17,
+    fontSize: 12,
+    lineHeight: 16,
     marginTop: 4,
   },
   messageBubble: {
-    borderColor: colors.backgroundMuted,
-    borderRadius: 14,
-    borderWidth: 1,
+    backgroundColor: colors.backgroundPrimary,
+    borderRadius: 22,
     flex: 1,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
+    minHeight: 126,
+    paddingHorizontal: 24,
+    paddingVertical: 21,
+    shadowColor: colors.textPrimary,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  messageTail: {
+    borderBottomColor: 'transparent',
+    borderBottomWidth: 12,
+    borderRightColor: colors.backgroundPrimary,
+    borderRightWidth: 18,
+    borderTopColor: 'transparent',
+    borderTopWidth: 12,
+    bottom: 16,
+    height: 0,
+    left: -16,
+    position: 'absolute',
+    width: 0,
   },
   message: {
     color: colors.textPrimary,
-    fontSize: 15,
-    lineHeight: 22,
+    fontSize: 16,
+    lineHeight: 21,
   },
   messageEmphasis: {
     color: colors.accent,
