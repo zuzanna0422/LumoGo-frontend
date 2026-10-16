@@ -3,19 +3,27 @@ import { Animated, StyleSheet, View } from 'react-native';
 import { colors } from '../../../theme/colors';
 
 type ChatProgressBarProps = {
+  animationDuration?: number;
+  onAnimationComplete?: () => void;
   progress: number;
 };
 
-export function ChatProgressBar({ progress }: ChatProgressBarProps) {
+export function ChatProgressBar({
+  animationDuration = 450,
+  onAnimationComplete,
+  progress,
+}: ChatProgressBarProps) {
   const progressPercent = useRef(new Animated.Value(progress * 100)).current;
 
   useEffect(() => {
     Animated.timing(progressPercent, {
       toValue: progress * 100,
-      duration: 450,
+      duration: animationDuration,
       useNativeDriver: false,
-    }).start();
-  }, [progress, progressPercent]);
+    }).start(({ finished }) => {
+      if (finished) onAnimationComplete?.();
+    });
+  }, [animationDuration, onAnimationComplete, progress, progressPercent]);
 
   return (
     <View style={styles.track}>
@@ -36,13 +44,13 @@ export function ChatProgressBar({ progress }: ChatProgressBarProps) {
 
 const styles = StyleSheet.create({
   track: {
-    backgroundColor: 'rgba(255,255,255,0.35)',
+    backgroundColor: colors.backgroundPrimary,
     borderRadius: 3,
     height: 6,
     overflow: 'hidden',
   },
   fill: {
-    backgroundColor: colors.backgroundPrimary,
+    backgroundColor: colors.homeBackground,
     borderRadius: 3,
     height: 6,
   },

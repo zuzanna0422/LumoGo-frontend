@@ -13,8 +13,6 @@ import GoogleLogo from '../components/GoogleLogo';
 import type { RootStackParamList } from '../navigation/AppNavigator';
 import { colors } from '../theme/colors';
 
-const doNothing = () => {};
-
 type Props = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
 
 export default function SignUpScreen({ navigation }: Props) {
@@ -69,7 +67,7 @@ export default function SignUpScreen({ navigation }: Props) {
             <Pressable
               accessibilityLabel="Continue with Google"
               accessibilityRole="button"
-              onPress={doNothing}
+              onPress={() => navigation.replace('Main')}
               style={({ pressed }) => [styles.button, styles.googleButton, pressed && styles.pressed]}
             >
               <View style={styles.googleContent}>
