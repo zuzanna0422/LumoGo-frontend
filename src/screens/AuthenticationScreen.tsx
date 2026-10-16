@@ -8,7 +8,8 @@ import { colors } from '../theme/colors';
 type Props = NativeStackScreenProps<RootStackParamList, 'Authentication'>;
 
 export default function AuthenticationScreen({ navigation }: Props) {
-  const enterApp = () => navigation.replace('Main');
+  const openSignUp = () => navigation.navigate('SignUp');
+  const openLogin = () => navigation.navigate('Login');
 
   return (
     <ImageBackground
@@ -26,7 +27,7 @@ export default function AuthenticationScreen({ navigation }: Props) {
           <View style={styles.actions}>
             <Pressable
               accessibilityRole="button"
-              onPress={enterApp}
+              onPress={openSignUp}
               style={({ pressed }) => [styles.button, styles.signUpButton, pressed && styles.pressed]}
             >
               <Text style={styles.signUpText}>Sign up</Text>
@@ -34,7 +35,7 @@ export default function AuthenticationScreen({ navigation }: Props) {
 
             <Pressable
               accessibilityRole="button"
-              onPress={enterApp}
+              onPress={openLogin}
               style={({ pressed }) => [styles.button, styles.logInButton, pressed && styles.pressed]}
             >
               <Text style={styles.logInText}>Log in</Text>
